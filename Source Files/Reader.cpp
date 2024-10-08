@@ -2,11 +2,13 @@
 #include <iostream>
 #include <string>
 #include "Reader.h"
+
 using namespace std;
-vector<double> points;
-vector<Point> Reader::read() {
-    vector<Point> pstack;
-    unordered_map<double, int> umap;
+vector<double> unique_points;
+
+vector<Point> Reader::read_stl_file() {
+    vector<Point> point_list;
+    unordered_map<double, int> unique_value_map;
     ifstream myfile("cube-ascii.stl");
     string line;
     int index = 0, x1, y1, z1;
@@ -17,48 +19,41 @@ vector<Point> Reader::read() {
             double x, y, z;
             if (iss >> vertex >> x >> y >> z) {
                 if (vertex == "vertex") {
-                    if (umap.find(x) == umap.end()) {
-                        umap[x] = index;
+                    if (unique_value_map.find(x) == unique_value_map.end()) {
+                        unique_value_map[x] = index;
                         x1 = index;
-                        points.push_back(x);
+                        unique_points.push_back(x);
                         index++;
                     }
                     else {
-                        x1 = umap[x];
+                        x1 = unique_value_map[x];
                     }
-                    if (umap.find(y) == umap.end()) {
-                        umap[y] = index;
+                    if (unique_value_map.find(y) == unique_value_map.end()) {
+                        unique_value_map[y] = index;
                         y1 = index;
-                        points.push_back(y);
+                        unique_points.push_back(y);
                         index++;
                     }
                     else {
-                        y1 = umap[y];
+                        y1 = unique_value_map[y];
                     }
-                    if (umap.find(z) == umap.end()) {
-                        umap[z] = index;
+                    if (unique_value_map.find(z) == unique_value_map.end()) {
+                        unique_value_map[z] = index;
                         z1 = index;
-                        points.push_back(z);
+                        unique_points.push_back(z);
                         index++;
                     }
                     else {
-                        z1 = umap[z];
+                        z1 = unique_value_map[z];
                     }
-                    //cout << "Point P x:" << x1 << " y:" << y1 << " z:" << z1 <<  endl;
                     Point p(x1, y1, z1);
-                    pstack.push_back(p);
-                    //triangles.push_back(Triangle t(Point p1(x1, y1, z1), Point p2(x2, y2, z2), Point p3(x3, y3, z3)));
+                    point_list.push_back(p);
                 }
             }
         }
-        /*cout << "points" << endl;
-        for (auto i : pstack) {
-            i.get_coord();
-            cout << "x:" << i.x << " y:" << i.y << " x:" << i.z << endl;
-        }*/
     }
-    return pstack;
+    return point_list;
 }
-vector<double> Reader::get_points() {
-    return points;
+vector<double> Reader::get_unique_points() {
+    return unique_points;
 }

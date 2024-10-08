@@ -8,8 +8,9 @@
 #include <sstream>
 using namespace std;
 class Reader {
-public:
+private:
     string file;
-    vector<Point> read();
-    vector<double> get_points();
+public:
+    vector<Point> read_stl_file();
+    vector<double> get_unique_points();
 };
