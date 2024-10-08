@@ -2,10 +2,11 @@
 #include <iostream>
 using namespace std;
 class Point{
-public:
+private:	
 	int x;
 	int y;
 	int z;
+public:
 	Point(int x, int y, int z);
 	~Point();
 	void get_coord();
