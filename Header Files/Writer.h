@@ -1,12 +1,15 @@
 #pragma once
-#include "Point.h"
+
 #include "Triangle.h"
 #include <fstream>
 #include <string>
 #include <unordered_map>
 #include <vector>
+
 using namespace std;
+
 class Writer{
+
 private:
     string file;
 public:
