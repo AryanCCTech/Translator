@@ -1,9 +1,7 @@
-#include <fstream>
-#include <iostream>
-#include <string>
 #include "Reader.h"
 
 using namespace std;
+
 vector<double> unique_points;
 
 vector<Point> Reader::read_stl_file() {
@@ -54,6 +52,7 @@ vector<Point> Reader::read_stl_file() {
     }
     return point_list;
 }
+
 vector<double> Reader::get_unique_points() {
     return unique_points;
 }
