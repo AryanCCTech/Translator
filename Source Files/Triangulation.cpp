@@ -1,11 +1,9 @@
-#include <fstream>
-#include <iostream>
-#include <string>
 #include "Triangulation.h"
 
 using namespace std;
+
 vector<Triangle> Triangulation::get_triangles_list(vector<Point> points) {
-vector<Triangle> triangles_list;
+	vector<Triangle> triangles_list;
 	if (points.size()%3 == 0){
 		int range = points.size() / 3;
 		for (int i = 0;i < range;i++){
