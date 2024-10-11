@@ -1,13 +1,12 @@
 // Triangulator.cpp : This file contains the 'main' function. Program execution begins and ends there.
 //
 
-#include <iostream>
-#include "Point.h"
-#include "Triangle.h"
-#include "Triangulation.h"
 #include "Reader.h"
+#include "Triangulation.h"
 #include "Writer.h"
+
 using namespace std;
+
 int main()
 {
     Reader R;
@@ -16,5 +15,5 @@ int main()
     Triangulation TRI;
     vector<Triangle> triangle_list = TRI.get_triangles_list(points_list);
     Writer W;
-    W.write(triangle_list,unique_points);
+    W.write(triangle_list, unique_points);
 }
