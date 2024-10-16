@@ -2,8 +2,8 @@
 
 using namespace std;
 
-vector<Triangle> Triangulation::get_triangles_list(vector<Point> points) {
-	vector<Triangle> triangles_list;
+vector<Triangle> triangles_list;
+void  Triangulation::make_triangles_list(vector<Point> points) {
 	if (points.size()%3 == 0){
 		int range = points.size() / 3;
 		for (int i = 0;i < range;i++){
@@ -14,5 +14,14 @@ vector<Triangle> Triangulation::get_triangles_list(vector<Point> points) {
 			triangles_list.push_back(t);
 		}
 	}
-	return triangles_list;
+}
+
+void Triangulation::get_triangles_list()
+{
+	cout << "Triangles List is:\n";
+	for (auto i : triangles_list) {
+		cout << "A: x:" << i.get_p1_point().get_x_coord() << " A: y:" << i.get_p1_point().get_y_coord() << " A: z:" << i.get_p1_point().get_z_coord();
+		cout << "B: x:" << i.get_p2_point().get_x_coord() << " B: y:" << i.get_p2_point().get_y_coord() << " B: z:" << i.get_p2_point().get_z_coord();
+		cout << "C: x:" << i.get_p3_point().get_x_coord() << " C: y:" << i.get_p3_point().get_y_coord() << " C: z:" << i.get_p3_point().get_z_coord();
+	}
 }

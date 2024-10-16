@@ -11,10 +11,10 @@ using namespace std;
 int main()
 {
     Reader R;
-    vector<Point> points_list = R.read_stl_file();
-    vector<double> unique_points = R.get_unique_points();
+    R.read_stl_file();
+    R.get_unique_points();
     Triangulation TRI;
-    vector<Triangle> triangle_list = TRI.get_triangles_list(points_list);
+    TRI.make_triangles_list(R.point_list);
     Writer W;
-    W.write(triangle_list,unique_points);
+    W.write(TRI.triangles_list,R.unique_points);
 }

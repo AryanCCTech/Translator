@@ -11,5 +11,7 @@ using namespace std;
 
 class Triangulation {
     public:
-        vector<Triangle> get_triangles_list(vector <Point> points);
+        vector<Triangle> triangles_list;
+        void make_triangles_list(vector <Point> points);
+        void get_triangles_list();
 };

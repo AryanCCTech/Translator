@@ -3,10 +3,10 @@
 using namespace std;
 
 vector<double> unique_points;
+vector<Point> point_list;
+unordered_map<double, int> unique_value_map;
 
-vector<Point> Reader::read_stl_file() {
-    vector<Point> point_list;
-    unordered_map<double, int> unique_value_map;
+void Reader::read_stl_file() {
     ifstream myfile("cube-ascii.stl");
     string line;
     int index = 0, x1, y1, z1;
@@ -50,9 +50,18 @@ vector<Point> Reader::read_stl_file() {
             }
         }
     }
-    return point_list;
 }
 
-vector<double> Reader::get_unique_points() {
-    return unique_points;
+void Reader::get_unique_points() {
+    cout << "UNIQUE POINTS ARE ";
+    for (auto i : unique_points) {
+        cout << i << " ";
+    }
+}
+
+void Reader::get_all_points() {
+    cout << "UNIQUE POINTS ARE ";
+    for (auto i : unique_points) {
+        cout << i << " ";
+    }
 }

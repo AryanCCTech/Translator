@@ -13,6 +13,9 @@ class Reader {
     private:
         string file;
     public:
-        vector<Point> read_stl_file();
-        vector<double> get_unique_points();
+        vector<double> unique_points;
+        vector<Point> point_list;
+        void read_stl_file();
+        void get_unique_points();
+        void get_all_points();
 };
