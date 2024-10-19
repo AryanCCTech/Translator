@@ -1,21 +1,17 @@
 #pragma once
+#include "Triangulation.h"
+#define TOLERANCE 0.000001
+class Reader
+{
+public:
+	Reader() 
+	{
+	}
+	~Reader() 
+	{
+	}
+	virtual void read(const std::string& inputFile, Triangulation& triangulation) = 0;
 
-#include "Triangle.h"
-#include <fstream>
-#include <string>
-#include <unordered_map>
-#include <vector>
-#include <sstream>
-
-using namespace std;
-
-class Reader {
-    private:
-        string file;
-    public:
-        vector<double> unique_points;
-        vector<Point> point_list;
-        void read_stl_file();
-        void get_unique_points();
-        void get_all_points();
+	bool equalChecker(double num1, double num2);
 };
+

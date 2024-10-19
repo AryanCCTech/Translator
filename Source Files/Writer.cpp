@@ -3,9 +3,10 @@
 
 using namespace std;
 
-void Writer::write(vector<Triangle> triangles_list,vector<double> unique_points) {
+vector<double>& unique_points;
+void Writer::write(vector<Triangle>& triangles_list) {
 	
-	string file = "output.dat";
+	const string file = "output.dat";
 	ofstream outfile(file);
 
 	for (auto i : triangles_list) {

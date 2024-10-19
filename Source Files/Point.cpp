@@ -1,16 +1,24 @@
 #include "Point.h"
-#include "Triangulation.h"
 
-using namespace std;
+Point::Point(int x, int y, int z) :x(x), y(y), z(z)
+{
+}
 
-Point::Point(int x, int y, int z) :x(x), y(y), z(z){}
-Point::~Point() {};
-int Point::get_x_coord() const{
+Point::~Point() 
+{
+};
+
+int Point::getXCoord() const
+{
     return x;
 }
-int Point::get_y_coord() const{
+
+int Point::getYCoord() const
+{
     return y;
 }
-int Point::get_z_coord() const{
+
+int Point::getZCoord() const
+{
     return z;
 }

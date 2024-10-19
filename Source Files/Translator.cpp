@@ -2,19 +2,16 @@
 //
 
 #include <iostream>
-#include "Point.h"
-#include "Triangle.h"
 #include "Triangulation.h"
-#include "Reader.h"
+#include "STLReader.h"
 #include "Writer.h"
 using namespace std;
 int main()
 {
-    Reader R;
-    R.read_stl_file();
-    R.get_unique_points();
     Triangulation TRI;
-    TRI.make_triangles_list(R.point_list);
+    STLReader R;
+    R.read(TRI.Unique_Point_List,TRI.Point_list);
+    TRI.make_triangles_list(TRI.Point_list);
     Writer W;
-    W.write(TRI.triangles_list,R.unique_points);
+    W.write(TRI.triangles_list,TRI.Unique_Point_List);
 }

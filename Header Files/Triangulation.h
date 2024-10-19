@@ -1,17 +1,18 @@
 #pragma once
 
 #include "Triangle.h"
-#include <fstream>
-#include <string>
-#include <sstream>
-#include <unordered_map>
 #include <vector>
 
-using namespace std;
-
-class Triangulation {
-    public:
-        vector<Triangle> triangles_list;
-        void make_triangles_list(vector <Point> points);
-        void get_triangles_list();
+class Triangulation 
+{ 
+    std::vector<Triangle> trianglesList;
+public:
+    std::vector<double> uniquePoints;
+    Triangulation()
+    {
+    }
+    ~Triangulation()
+    {
+    }
+    void insertTriangles(Triangle& triangle);
 };

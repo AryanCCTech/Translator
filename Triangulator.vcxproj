@@ -104,7 +104,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>E:\AryanWorkplace\Triangulator\Header Files;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>E:\AryanWorkplace\Github\Header Files;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -130,22 +130,19 @@
   <ItemGroup>
     <ClCompile Include="Source Files\Point.cpp" />
     <ClCompile Include="Source Files\Reader.cpp" />
+    <ClCompile Include="Source Files\STLReader.cpp" />
+    <ClCompile Include="Source Files\Translator.cpp" />
     <ClCompile Include="Source Files\Triangle.cpp" />
     <ClCompile Include="Source Files\Triangulation.cpp" />
     <ClCompile Include="Source Files\Writer.cpp" />
-    <ClCompile Include="Translator.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Header Files\Point.h" />
     <ClInclude Include="Header Files\Reader.h" />
+    <ClInclude Include="Header Files\STLReader.h" />
     <ClInclude Include="Header Files\Triangle.h" />
     <ClInclude Include="Header Files\Triangulation.h" />
     <ClInclude Include="Header Files\Writer.h" />
-    <ClInclude Include="Point.h" />
-    <ClInclude Include="Reader.h" />
-    <ClInclude Include="Triangle.h" />
-    <ClInclude Include="Triangulation.h" />
-    <ClInclude Include="Writer.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
