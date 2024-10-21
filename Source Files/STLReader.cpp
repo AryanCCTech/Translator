@@ -1,10 +1,19 @@
 #include "STLReader.h"
 #include <sstream>
+#include <iostream>
 #include <fstream>
 
 using namespace std;
 
-void STLReader::read(const std::string& inputFile, Triangulation& triangulation) {
+STLReader::STLReader()
+{
+}
+
+STLReader::~STLReader()
+{
+}
+
+void STLReader::read(std::string& inputFile,Triangulation& triangulation) {
     ifstream myfile(inputFile);
     string line;
     int index = 0;
@@ -22,9 +31,9 @@ void STLReader::read(const std::string& inputFile, Triangulation& triangulation)
             {
                 if (vertex == "vertex")
                 {
-                    x1 = findAddValues(uniquePointList, x);
-                    y1 = findAddValues(uniquePointList, y);
-                    z1 = findAddValues(uniquePointList, z);
+                    x1 = findAddValues(x, triangulation);
+                    y1 = findAddValues(y, triangulation);
+                    z1 = findAddValues(z, triangulation);
                     pointList.push_back(Point(x1, y1, z1));
                 }
             }
@@ -41,15 +50,17 @@ void STLReader::read(const std::string& inputFile, Triangulation& triangulation)
     }
 }
 
-int STLReader::findAddValues(vector<double>& uniquePointList, double& value)
+int STLReader::findAddValues (double& value, Triangulation& triangulation)
 {
-    for (int i = 0; i < uniquePointList.size(); i++) 
+ 
+    for (int i = 0; i < triangulation.uniquePoints.size(); i++) 
     {
-        if (equalChecker(uniquePointList[i], value))
+        if (equalChecker(triangulation.uniquePoints[i], value))
             return i;
     }
-    uniquePointList.push_back(value);
-    return uniquePointList.size()-1;
+    triangulation.uniquePoints.push_back(value);
+    int size = triangulation.uniquePoints.size();
+    return size-1;
 }
 
 void STLReader::createTriangles(Point& p1, Point& p2, Point& p3, Triangulation& triangulation)

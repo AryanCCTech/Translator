@@ -1,19 +1,14 @@
 #pragma once
-
-#include "Triangle.h"
-#include <vector>
+#pragma once
+#include <string>
+#include "Triangulation.h"
 
 using namespace std;
 
-class Writer{
-    const string outputFile;
-    vector<double>& uniquePoints;
+class Writer
+{
 public:
-    Writer()
-    {
-    }
-    ~Writer() 
-    {
-    }
-    void write(vector<Triangle>& triangle_list,vector<double>& upoints);
+	Writer();
+	~Writer();
+	virtual void write(const string& inputFile, Triangulation& triangulation) = 0;
 };

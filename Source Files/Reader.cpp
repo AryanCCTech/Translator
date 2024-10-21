@@ -1,6 +1,16 @@
 #include "Reader.h"
 
-void Reader::read(const std::string& inputFile, Triangulation& triangulation)
+using namespace std;
+
+Reader::Reader()
+{
+}
+
+Reader::~Reader()
+{
+}
+
+void Reader::read(string& inputFile, Triangulation& triangulation)
 {
 }
 

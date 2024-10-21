@@ -134,6 +134,7 @@
     <ClCompile Include="Source Files\Translator.cpp" />
     <ClCompile Include="Source Files\Triangle.cpp" />
     <ClCompile Include="Source Files\Triangulation.cpp" />
+    <ClCompile Include="Source Files\STLWriter.cpp" />
     <ClCompile Include="Source Files\Writer.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -142,7 +143,8 @@
     <ClInclude Include="Header Files\STLReader.h" />
     <ClInclude Include="Header Files\Triangle.h" />
     <ClInclude Include="Header Files\Triangulation.h" />
-    <ClInclude Include="Header Files\Writer.h" />
+    <ClInclude Include="Header Files\STLWriter.h" />
+    <ClInclude Include="Writer.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

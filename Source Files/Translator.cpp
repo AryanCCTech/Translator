@@ -4,14 +4,21 @@
 #include <iostream>
 #include "Triangulation.h"
 #include "STLReader.h"
-#include "Writer.h"
+#include "STLWriter.h"
 using namespace std;
 int main()
 {
     Triangulation TRI;
-    STLReader R;
-    R.read(TRI.Unique_Point_List,TRI.Point_list);
-    TRI.make_triangles_list(TRI.Point_list);
-    Writer W;
-    W.write(TRI.triangles_list,TRI.Unique_Point_List);
+    STLReader reader1;
+    STLWriter writer1;
+    string inputFile1;
+    string outputFile1;
+    cout << "Enter the input file name: ";
+    cin >> inputFile1;
+    cout << endl;
+    reader1.read(inputFile1,TRI);
+    cout << "Enter the output file name: ";
+    cin >> outputFile1;
+    cout << endl;
+    writer1.write(outputFile1,TRI);
 }
