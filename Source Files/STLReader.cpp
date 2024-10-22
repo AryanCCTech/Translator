@@ -2,6 +2,7 @@
 #include <sstream>
 #include <iostream>
 #include <fstream>
+#include <map>
 
 using namespace std;
 
@@ -26,14 +27,16 @@ void STLReader::read(std::string& inputFile,Triangulation& triangulation) {
         {
             istringstream iss(line);
             string vertex;
-            double x, y, z;
+            double x;
+            double y;
+            double z;
             if (iss >> vertex >> x >> y >> z) 
             {
                 if (vertex == "vertex")
                 {
-                    x1 = findAddValues(x, triangulation);
-                    y1 = findAddValues(y, triangulation);
-                    z1 = findAddValues(z, triangulation);
+                    x1 = findAddValues(x, triangulation,index);
+                    y1 = findAddValues(y, triangulation,index);
+                    z1 = findAddValues(z, triangulation,index);
                     pointList.push_back(Point(x1, y1, z1));
                 }
             }
@@ -50,17 +53,18 @@ void STLReader::read(std::string& inputFile,Triangulation& triangulation) {
     }
 }
 
-int STLReader::findAddValues (double& value, Triangulation& triangulation)
+int STLReader::findAddValues (double& value, Triangulation& triangulation,int& index)
 {
- 
-    for (int i = 0; i < triangulation.uniquePoints.size(); i++) 
+    if (doubleMap.find(value) == doubleMap.end()) 
     {
-        if (equalChecker(triangulation.uniquePoints[i], value))
-            return i;
+        doubleMap[value] = index;
+        triangulation.uniquePoints.push_back(value);
+        return index++;
     }
-    triangulation.uniquePoints.push_back(value);
-    int size = triangulation.uniquePoints.size();
-    return size-1;
+    else
+    {
+        return doubleMap[value];
+    }
 }
 
 void STLReader::createTriangles(Point& p1, Point& p2, Point& p3, Triangulation& triangulation)

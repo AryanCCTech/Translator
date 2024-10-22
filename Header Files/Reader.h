@@ -13,6 +13,14 @@ public:
 	~Reader();
 	virtual void read(string& inputFile, Triangulation& triangulation) = 0;
 
+	struct ToleranceComparator 
+	{
+		bool operator()(double a, double b) const 
+		{
+			return (fabs(a - b) > TOLERANCE) ? a < b : false;
+		}
+	};
+
 	bool equalChecker(double num1, double num2);
 };
 

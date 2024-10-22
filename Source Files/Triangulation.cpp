@@ -2,7 +2,7 @@
 
 using namespace std;
 
-Triangulation::Triangulation() : uniquePoints(uniquePoints)
+Triangulation::Triangulation()
 {
 }
 

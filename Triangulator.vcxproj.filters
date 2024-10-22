@@ -59,7 +59,7 @@
     <ClInclude Include="Header Files\Reader.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Writer.h">
+    <ClInclude Include="Header Files\Writer.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
